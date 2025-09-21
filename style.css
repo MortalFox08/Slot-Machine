@@ -1,0 +1,240 @@
+:root {
+    --bg-primary: #101419;
+    --bg-card: rgba(22, 28, 37, 0.6);
+    --text-primary: #F5F5F5;
+    --text-secondary: #8A94A4;
+    --accent-start: #E600FF;
+    --accent-end: #00B2FF;
+    --accent-gradient: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    
+    /* --- CHANGES FOR NEW ANIMATION START HERE --- */
+    /* 1. Using four more vibrant gradients for a richer effect */
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(0, 178, 255, 0.2), transparent 25%),
+        radial-gradient(circle at 85% 20%, rgba(230, 0, 255, 0.2), transparent 25%),
+        radial-gradient(circle at 20% 80%, rgba(148, 0, 211, 0.2), transparent 25%),
+        radial-gradient(circle at 80% 85%, rgba(0, 178, 255, 0.15), transparent 25%);
+
+    /* 2. Applying the new, faster animation */
+    background-size: 200% 200%;
+    animation: flashy-animation 15s ease-in-out infinite;
+}
+
+.machine-container {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.balance {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.balance-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+#balance-display {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+#reels-container {
+    margin: 1.5rem 0;
+}
+
+.reel-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.symbol {
+    font-size: 3rem;
+    font-weight: 700;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+#message-area {
+    min-height: 24px;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.message.success { color: var(--color-success); }
+.message.error { color: var(--color-error); }
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.input-group label {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    padding-left: 0.25rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--text-secondary);
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    padding: 0.5rem 0.25rem;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-bottom-color: var(--accent-end);
+}
+
+.deposit-group {
+    flex-direction: row;
+    align-items: flex-end;
+    flex-grow: 1.5;
+}
+
+.deposit-group input {
+    width: 60%;
+    margin-top: auto;
+}
+
+.deposit-group .btn-secondary {
+    width: 40%;
+    height: 44px;
+    padding: 0.5rem;
+}
+
+button {
+    border-radius: 12px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+    transform: none;
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+.btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 1rem;
+    width: 100%;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* 3. REPLACED: New keyframes for a swirling, more complex animation */
+@keyframes flashy-animation {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 50%; }
+}
